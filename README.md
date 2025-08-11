@@ -70,7 +70,7 @@ source .venv/bin/activate
 adk web
 ```
 
-http://127.0.0.1:8000にアクセスできるかを確認する．
+http://127.0.0.1:8000 にアクセスできるかを確認する．
 
 ## 機能
 
@@ -85,10 +85,6 @@ http://127.0.0.1:8000にアクセスできるかを確認する．
 2. `get_current_time(city: str)` - 都市の現在時刻を取得
 
 音声でのやり取りを行いたい場合、`multi_tool_agent/agent.py`の`root_agent`作成時に利用するモデルを音声対応モデル（例: `gemini-2.0-flash-live-001`）へ変更してください。
-
-
-
-
 
 
 ## 注意事項
