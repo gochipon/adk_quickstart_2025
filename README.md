@@ -13,8 +13,8 @@ python -m venv .venv
 # 仮想環境の有効化（macOS/Linux）
 source .venv/bin/activate
 
-# 仮想環境の有効化（Windows）
-# .venv\Scripts\activate
+# 仮想環境の有効化（Windows）　こっちは未検証
+.venv\Scripts\activate
 ```
 
 
@@ -27,7 +27,11 @@ pip install -r requirements.txt
 
 ### 3. 環境設定
 
-#### 3.1 環境変数の設定
+#### 3.1 Google API キーの取得
+
+Google API キーは講師から提供されます。提供されたAPIキーを次の手順で設定してください。
+
+#### 3.2 環境変数の設定
 
 `multi_tool_agent/.env`ファイルを手動で作成し、以下の内容を記載してください：
 
@@ -39,19 +43,13 @@ GOOGLE_API_KEY=your_google_api_key_here
 
 **作成手順：**
 ```bash
-# .envファイルを作成
-touch multi_tool_agent/.env
-
-# エディタで編集（例：vim、nano、VS Codeなど）
-nano multi_tool_agent/.env
+# catコマンドで.envファイルを作成
+cat << EOF > multi_tool_agent/.env
+# Google AI API設定
+GOOGLE_GENAI_USE_VERTEXAI=false
+GOOGLE_API_KEY=your_google_api_key_here
+EOF
 ```
-
-#### 3.2 Google API キーの取得
-
-1. [Google AI Studio](https://aistudio.google.com/)にアクセス
-2. 「Get API key」をクリック
-3. 新しいAPIキーを作成
-4. 作成されたAPIキーを`.env`ファイルの`GOOGLE_API_KEY`に設定
 
 #### 3.3 注意事項
 
