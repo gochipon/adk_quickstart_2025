@@ -61,7 +61,7 @@ EOF
 
 ```bash
 # エージェントの実行
-python -c "from multi_tool_agent.agent import root_agent; print('Agent initialized:', root_agent.name)"
+adk web
 ```
 
 ## 機能
