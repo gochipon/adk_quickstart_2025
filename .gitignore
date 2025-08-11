@@ -1,2 +1,5 @@
-./.venv/
-./multi_tool_agent/.env
+.venv/
+multi_tool_agent/__pycache__
+multi_tool_agent/.env
+.env
+*.env

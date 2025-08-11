@@ -7,8 +7,8 @@
 ### 1. 仮想環境の作成と有効化
 
 ```bash
-# 仮想環境の作成
-python -m venv .venv
+# 仮想環境の作成.環境によっては、python -m venv .venvになるかも
+python3 -m venv .venv
 
 # 仮想環境の有効化（macOS/Linux）
 source .venv/bin/activate
@@ -59,10 +59,18 @@ EOF
 
 ### 4. サービスの実行
 
+一度、venvをdeactivateし、再度仮想環境を有効化する（この手順が不要な環境もあります）
+```bash
+deactivate
+source .venv/bin/activate
+```
+
 ```bash
 # エージェントの実行
 adk web
 ```
+
+http://127.0.0.1:8000にアクセスできるかを確認する．
 
 ## 機能
 
@@ -75,6 +83,13 @@ adk web
 
 1. `get_weather(city: str)` - 都市の天気情報を取得
 2. `get_current_time(city: str)` - 都市の現在時刻を取得
+
+音声でのやり取りを行いたい場合、`multi_tool_agent/agent.py`の`root_agent`作成時に利用するモデルを音声対応モデル（例: `gemini-2.0-flash-live-001`）へ変更してください。
+
+
+
+
+
 
 ## 注意事項
 
