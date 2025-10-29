@@ -1,5 +1,30 @@
+# 仮想環境
 .venv/
-multi_tool_agent/__pycache__
-multi_tool_agent/.env
+venv/
+ENV/
+env/
+
+# Python キャッシュ
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 環境変数ファイル
 .env
 *.env
+
+# uv関連
+# 注意: uv.lock は意図的にコミットします（依存関係の再現性のため）
+# .python-version はプロジェクト全体で統一する場合はコミットしてもOK
+
+# IDE設定
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS固有
+.DS_Store
+Thumbs.db
