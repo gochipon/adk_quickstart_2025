@@ -49,9 +49,11 @@ uv sync
 ```
 
 このコマンドは以下を自動的に行います：
-- `.venv`ディレクトリに仮想環境を作成
+- `.venv`ディレクトリに仮想環境を作成（存在しない場合）
 - `pyproject.toml`に記載された依存関係をインストール
-- `uv.lock`ファイルを生成（依存関係の固定）
+- `uv.lock`ファイルを生成（初回実行時のみ。既に存在する場合はそのロックファイルに基づいてインストール）
+
+**注意**: `pyproject.toml`を変更した場合は、`uv lock`コマンドでロックファイルを更新してから`uv sync`を実行してください。
 
 ### ステップ3: 環境変数の設定
 
@@ -178,29 +180,40 @@ uvを使用している場合、以下のコマンドが利用できます。
 ### 新しいパッケージを追加
 
 ```bash
-# パッケージを追加してpyproject.tomlとuv.lockを更新
+# パッケージを追加してpyproject.tomlとuv.lockを自動更新
 uv add <package_name>
 
 # 例: pandasを追加
 uv add pandas
 ```
 
+`uv add`は自動的にpyproject.tomlに依存関係を追加し、uv.lockを更新して、パッケージをインストールします。
+
 ### パッケージを削除
 
 ```bash
-# パッケージを削除
+# パッケージを削除してpyproject.tomlとuv.lockを自動更新
 uv remove <package_name>
 
 # 例: pandasを削除
 uv remove pandas
 ```
 
+### ロックファイルの更新
+
+```bash
+# pyproject.tomlを変更した後、ロックファイルを更新
+uv lock
+```
+
 ### 依存関係の再同期
 
 ```bash
-# pyproject.tomlに基づいて依存関係を再同期
+# uv.lockに基づいて依存関係を同期
 uv sync
 ```
+
+`uv sync`は既存の`uv.lock`に基づいて環境を同期します。新しいパッケージを追加した場合は`uv add`を使用してください。
 
 ### Pythonスクリプトの実行
 
