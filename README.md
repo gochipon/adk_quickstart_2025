@@ -19,8 +19,11 @@ GOOGLE_GENAI_USE_VERTEXAI=false
 GOOGLE_API_KEY=your_google_api_key_here
 EOF
 
-# 4. サービスの起動
-uv run adk web
+# 4. adkのバージョンを1.18以上にする
+uv add google-adk==1.18.0 
+
+# 5. サービスの起動
+uv run adk web --reload_agents
 ```
 
 http://127.0.0.1:8000 にアクセスできるかを確認してください。
